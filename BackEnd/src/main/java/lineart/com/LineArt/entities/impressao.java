@@ -21,6 +21,7 @@ public class impressao implements Serializable{
 	private Long idMaterial;
 	private Long comprimento;
 	private Long largura;
+	private Long quantidade;
 	private String motivo;
 	private Instant data;
 	
@@ -28,7 +29,7 @@ public class impressao implements Serializable{
 		
 	}
 
-	public impressao(Long id, Long idCliente, Long idMaterial, Long comprimento, Long largura, String motivo,
+	public impressao(Long id, Long idCliente, Long idMaterial, Long comprimento, Long largura, Long quantidade, String motivo,
 			Instant data) {
 		super();
 		this.id = id;
@@ -36,6 +37,7 @@ public class impressao implements Serializable{
 		this.idMaterial = idMaterial;
 		this.comprimento = comprimento;
 		this.largura = largura;
+		this.quantidade = quantidade;
 		this.motivo = motivo;
 		this.data = data;
 	}
@@ -90,6 +92,14 @@ public class impressao implements Serializable{
 
 	public Long getId() {
 		return id;
+	}
+	
+	public Long getQuantidade() {
+		return quantidade;
+	}
+	
+	public void setQuantidade(Long quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	@Override
