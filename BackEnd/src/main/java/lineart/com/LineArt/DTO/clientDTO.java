@@ -1,33 +1,30 @@
-package lineart.com.LineArt.entities;
+package lineart.com.LineArt.DTO;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lineart.com.LineArt.entities.client;
 
-@Entity
-@Table(name = "tb_clients")
-public class clients implements Serializable{
+public class clientDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long id;
 	private String nome;
 	private String telefone;
 	
-	public clients() {
-		
+	public clientDTO() {
 	}
 
-	public clients(Long id, String nome, String telefone) {
-		super();
+	public clientDTO(Long id, String nome, String telefone) {
+		
 		this.id = id;
 		this.nome = nome;
 		this.telefone = telefone;
+	}
+	
+	public clientDTO(client entity) {
+		this.id = entity.getId();
+		this.nome = entity.getNome();
+		this.telefone = entity.getTelefone();
 	}
 
 	public String getNome() {
@@ -45,11 +42,13 @@ public class clients implements Serializable{
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;
 	}
-	
-	
 
 }
