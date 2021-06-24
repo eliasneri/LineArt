@@ -28,11 +28,19 @@ public class clientService {
 		
 	}
 
-
+	@Transactional(readOnly = true)
 	public clientDTO findById(Long id) {
 		Optional<client> obj = repositorio.findById(id);
 		client entity = obj.orElseThrow(() -> new ResourceNotFoundException("ID Não Encontrado")); 
 		return new clientDTO(entity); 
+	}
+	
+	public clientDTO insert(clientDTO dto) {
+		client entidade = new client();
+		entidade.setNome(dto.getNome());
+		entidade.setTelefone(dto.getTelefone());
+		entidade = repositorio.save(entidade);
+		return new clientDTO(entidade);
 	}
 	
 	
